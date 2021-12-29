@@ -11,7 +11,7 @@ The following use-cases are currently supported:
 - "unshare" one or multiple streams with one or multiple teams
 - "unshare" all streams with one or multiple teams
 
-At the time of this writing, Bitpanda does not have a self-signed PKI infrastructure in place; for this reason Pandalog cannot install CA root certificates to establish trust, thus HTTPS requests skip verification.
+At the time of this writing, we're not enforcing PKI infrastructure; for this reason Pandalog does not install CA root certificates to establish trust, thus HTTPS requests skip verification.
 
 ### Usage
 
@@ -22,7 +22,7 @@ Usage: pandalog [OPTIONS] COMMAND [ARGS]...
 
   Example Usage:
 
-  $ export GRAYLOG_HOST=logs.staging.bitpanda
+  $ export GRAYLOG_HOST=graylog.example.bitpanda
   $ export GRAYLOG_TOKEN=$(pandalog-auth get-sts-token -u ${USER} -p ${PASS})
   $ pandalog get-teams
   ID					        NAME
@@ -37,8 +37,8 @@ Usage: pandalog [OPTIONS] COMMAND [ARGS]...
   5e380901978444001608e368		API Internal
   5f7df10d972d6200141676f7		Admin
   ... TRUNCATED ...
-  $ pandalog to-stream --all "All Pandas,developer"
-  $ pandalog from-stream --streams "API,ledger" "staging-developer"
+  $ pandalog to-stream --all "All Pandas,Some Pandas"
+  $ pandalog from-stream --streams "API,ACME" "staging-developer"
 
 Options:
   --version  Show the version and exit.
@@ -66,7 +66,7 @@ To build the Dockerfile locally:
 
 ```
 # clone repo and go to the project root directory
-$ git clone ssh://git@git.buildpanda.wtf:10022/yuri.neves/pandalog.git && cd pandalog
+$ git clone ssh://git@git.github.com/bitpanda-labs/pandalog.git && cd pandalog
 # build the docker image
 $ DOCKER_BUILDKIT=1 docker build -t ${image}:${tag} -f ci/docker/Dockerfile .
 ```
@@ -77,7 +77,7 @@ To install it in a virtual environment:
 # install venv package
 $ python3 -m pip install virtualenv
 # clone repo and go to the project root directory
-$ git clone ssh://git@git.buildpanda.wtf:10022/yuri.neves/pandalog.git && cd pandalog
+$ git clone ssh://git@git.github.com/bitpanda-labs/pandalog.git && cd pandalog
 # create a virtualenv inside the directory
 $ python3 -m venv env
 # activate the virtualenv
