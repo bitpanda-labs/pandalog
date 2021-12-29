@@ -26,16 +26,16 @@ Usage: pandalog [OPTIONS] COMMAND [ARGS]...
   $ export GRAYLOG_TOKEN=$(pandalog-auth get-sts-token -u ${USER} -p ${PASS})
   $ pandalog get-teams
   ID					        NAME
-  6197bfc8eda84503ac69a8c8		All Pandas
-  6197bfc8eda84503ac69a8c9		External
-  6197bfc8eda84503ac69a8c1		staging-developer
+  6197...da84503ac69a8c8		All Pandas
+  6197...5da84503ac69a8c9		External
+  6197...c69a8c1asddfedd		No Pandas
   ... TRUNCATED ...
   $ pandalog get-streams
   ID					        TITLE
-  614da2ff22df8b0d6d1e2485		AKHQ
-  5e37f50e84c5320016ebd0c6		API
-  5e380901978444001608e368		API Internal
-  5f7df10d972d6200141676f7		Admin
+  614da...2ff22df8b0		Stream1
+  5e37f...50e84c5320		Stream2
+  5e380...9019784440		Stream3
+  5f7df...10d972d620		Admin-PY
   ... TRUNCATED ...
   $ pandalog to-stream --all "All Pandas,Some Pandas"
   $ pandalog from-stream --streams "API,ACME" "staging-developer"
